@@ -1,0 +1,31 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+
+## Environment
+.env
+
+## Docker
+docker-compose.override.yml
+
+## Sertifikalar
+certs/
+
+## Mimari dokümantasyon (paylaşılmıyor)
+AI-Docs/
+
+## Logs
+logs/
+*.log
+
+## Coverage
+TestResults/
+coverage/
+
+## Rider
+.idea/
+*.DotSettings.user
