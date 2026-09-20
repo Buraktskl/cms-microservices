@@ -11,6 +11,11 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Docker/Kubernetes secrets mounted under /run/secrets are loaded as configuration keys:
+// a file named ConnectionStrings__UserDb becomes ConnectionStrings:UserDb, so the same
+// binary reads env vars in compose and secret files in Swarm/K8s without a code change.
+builder.Configuration.AddKeyPerFile("/run/secrets", optional: true);
+
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
